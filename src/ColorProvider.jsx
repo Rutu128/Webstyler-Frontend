@@ -25,6 +25,7 @@ export const ColorProvider = ({ children }) => {
       const response = await axios.get(`${url}/get-colors`);
       const data = response.data.data;
       // console.log(data);
+      console.log('data',data);
       
       // Convert array format to rgb strings
       const convertedColors = {
@@ -32,7 +33,6 @@ export const ColorProvider = ({ children }) => {
         button_color: convertArrayToRgb(data.button_color),
         navbar_color: convertArrayToRgb(data.navbar_color),
       };
-
       // Calculate contrasting font colors
       const pageFontColor = calculateContrastingColor(convertedColors.background_color);
       const navbarFontColor = calculateContrastingColor(convertedColors.navbar_color);
